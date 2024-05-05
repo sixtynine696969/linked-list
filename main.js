@@ -58,6 +58,18 @@ class LinkedList {
         }
     }
 
+    pop() {
+        if (!this.root.nextNode) this.root = null;
+
+        let currentNode = this.root;
+        while (currentNode) {
+            if (!currentNode.nextNode.nextNode) {
+                currentNode.nextNode = null;
+            }
+            currentNode = currentNode.nextNode
+        }
+    }
+
     printValues() {
         let currentNode = this.root
         while (currentNode) {
@@ -87,7 +99,13 @@ linkedList.append(2)
 linkedList.prepend(13)
 linkedList.prepend(14)
 
-linkedList.printValues()
+// linkedList.printValues()
 
-console.log(linkedList.at(4))
+// console.log(linkedList.at(4))
+
+linkedList.pop();
+linkedList.pop();
+// linkedList.pop();
+// linkedList.pop();
+linkedList.printValues();
 
