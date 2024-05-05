@@ -36,6 +36,10 @@ class LinkedList {
         return counter
     }
 
+    head() {
+        return this.root;
+    }
+
     printValues() {
         let currentNode = this.root
         while (currentNode) {
@@ -67,5 +71,5 @@ linkedList.prepend(14)
 
 linkedList.printValues()
 
-console.log(linkedList.size())
+console.log(linkedList.head())
 
