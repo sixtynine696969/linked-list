@@ -52,9 +52,19 @@ class LinkedList {
 
     at(index) {
         let currentNode = this.root;
-        for (let i = 0; i < this.size(); i++) {
-            if (i === +index) return currentNode;
+
+        // solution 1
+        // for (let i = 0; i < this.size(); i++) {
+        //     if (i === +index) return currentNode;
+        //     currentNode = currentNode.nextNode;
+        // }
+        
+        // solution 2
+        let counter = 0;
+        while (currentNode instanceof Node) {
+            if (counter === +index) return currentNode;
             currentNode = currentNode.nextNode;
+            counter++;
         }
     }
 
@@ -83,12 +93,14 @@ class LinkedList {
     find(value) {
         let currentNode = this.root;
 
+        // solution 1
         // for (let i = 0; i < this.size(); i++ ) {
         //     if (currentNode.value === +value) return i;
         //     currentNode = currentNode.nextNode;
         // }
         // return null;
-
+        
+        // solution 2
         let counter = 0;
         while (currentNode) {
             if (!currentNode.nextNode) return null
@@ -100,21 +112,28 @@ class LinkedList {
         }
     }
 
-    printValues() {
-        let currentNode = this.root
-        while (currentNode) {
-            console.log(currentNode.value)
+    toString() {
+        let currentNode = this.root;
+
+        let output = ""
+
+        for (let i = 0; i <= this.size(); i++) {
+            if (currentNode instanceof Node) {
+                output = output + (`( ${currentNode.value} ) -> `)
+                console.log(`( ${currentNode.value} ) -> `)
+            } else {
+                output = output + (`${currentNode}`);
+                break;
+            };
             currentNode = currentNode.nextNode;
         }
-        console.log(currentNode)
+        return output;
     }
-
-
 }
 
 let linkedList = new LinkedList()
 
-linkedList.append(1)
+// linkedList.append(1)
 linkedList.append(2)
 // linkedList.append(3)
 // linkedList.append(4)
@@ -126,8 +145,8 @@ linkedList.append(2)
 // linkedList.append(10)
 // linkedList.append(11)
 // linkedList.append(12)
-linkedList.prepend(13)
-linkedList.prepend(14)
+// linkedList.prepend(13)
+// linkedList.prepend(14)
 
 // linkedList.printValues()
 
@@ -138,5 +157,6 @@ linkedList.prepend(14)
 // linkedList.pop();
 // linkedList.pop();
 linkedList.printValues();
-console.log(linkedList.find(41))
+console.log(linkedList.find(1))
+console.log(linkedList.toString())
 
