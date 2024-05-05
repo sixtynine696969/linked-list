@@ -33,7 +33,7 @@ class LinkedList {
             currentNode = currentNode.nextNode;
             counter++;
         }
-        return counter
+        return counter;
     }
 
     head() {
@@ -66,7 +66,7 @@ class LinkedList {
             if (!currentNode.nextNode.nextNode) {
                 currentNode.nextNode = null;
             }
-            currentNode = currentNode.nextNode
+            currentNode = currentNode.nextNode;
         }
     }
 
@@ -74,10 +74,30 @@ class LinkedList {
         let currentNode = this.root;
 
         while (currentNode) {
-            if (currentNode.value === value) return true;
+            if (currentNode.value === +value) return true;
             currentNode = currentNode.nextNode;
         }
         return false;
+    }
+
+    find(value) {
+        let currentNode = this.root;
+
+        // for (let i = 0; i < this.size(); i++ ) {
+        //     if (currentNode.value === +value) return i;
+        //     currentNode = currentNode.nextNode;
+        // }
+        // return null;
+
+        let counter = 0;
+        while (currentNode) {
+            if (!currentNode.nextNode) return null
+            if (currentNode.value === +value) {
+                return counter;
+            }
+            currentNode = currentNode.nextNode;
+            counter++;
+        }
     }
 
     printValues() {
@@ -118,5 +138,5 @@ linkedList.prepend(14)
 // linkedList.pop();
 // linkedList.pop();
 linkedList.printValues();
-console.log(linkedList.contains(114))
+console.log(linkedList.find(41))
 
