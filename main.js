@@ -70,6 +70,16 @@ class LinkedList {
         }
     }
 
+    contains(value) {
+        let currentNode = this.root;
+
+        while (currentNode) {
+            if (currentNode.value === value) return true;
+            currentNode = currentNode.nextNode;
+        }
+        return false;
+    }
+
     printValues() {
         let currentNode = this.root
         while (currentNode) {
@@ -103,9 +113,10 @@ linkedList.prepend(14)
 
 // console.log(linkedList.at(4))
 
-linkedList.pop();
-linkedList.pop();
+// linkedList.pop();
+// linkedList.pop();
 // linkedList.pop();
 // linkedList.pop();
 linkedList.printValues();
+console.log(linkedList.contains(114))
 
