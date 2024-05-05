@@ -40,6 +40,24 @@ class LinkedList {
         return this.root;
     }
 
+    tail() {
+        let currentNode = this.root;
+        while (currentNode) {
+            if (!currentNode.nextNode) {
+                return currentNode;
+            }
+            currentNode = currentNode.nextNode;
+        }
+    }
+
+    at(index) {
+        let currentNode = this.root;
+        for (let i = 0; i < this.size(); i++) {
+            if (i === +index) return currentNode;
+            currentNode = currentNode.nextNode;
+        }
+    }
+
     printValues() {
         let currentNode = this.root
         while (currentNode) {
@@ -71,5 +89,5 @@ linkedList.prepend(14)
 
 linkedList.printValues()
 
-console.log(linkedList.head())
+console.log(linkedList.at(4))
 
