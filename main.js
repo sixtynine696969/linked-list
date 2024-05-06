@@ -114,17 +114,28 @@ class LinkedList {
 
     toString() {
         let currentNode = this.root;
-
         let output = ""
+        
+        // solution 1
+        // for (let i = 0; i <= this.size(); i++) {
+        //     if (currentNode instanceof Node) {
+        //         output = output + (`( ${currentNode.value} ) -> `)
+        //     } else {
+        //         output = output + (`${currentNode}`);
+        //         break;
+        //     };
+        //     currentNode = currentNode.nextNode;
+        // }
+        // return output;
 
-        for (let i = 0; i <= this.size(); i++) {
+        // solution 2
+        while (1) {
             if (currentNode instanceof Node) {
-                output = output + (`( ${currentNode.value} ) -> `)
-                console.log(`( ${currentNode.value} ) -> `)
+                output = output + (`( ${currentNode.value} ) -> `);   
             } else {
                 output = output + (`${currentNode}`);
                 break;
-            };
+            }
             currentNode = currentNode.nextNode;
         }
         return output;
@@ -133,30 +144,25 @@ class LinkedList {
 
 let linkedList = new LinkedList()
 
-// linkedList.append(1)
+linkedList.append(1)
 linkedList.append(2)
-// linkedList.append(3)
-// linkedList.append(4)
-// linkedList.append(5)
-// linkedList.append(6)
-// linkedList.append(7)
-// linkedList.append(8)
-// linkedList.append(9)
-// linkedList.append(10)
-// linkedList.append(11)
-// linkedList.append(12)
-// linkedList.prepend(13)
-// linkedList.prepend(14)
+linkedList.append(3)
+linkedList.append(4)
+linkedList.append(5)
+linkedList.append(6)
+linkedList.append(7)
+linkedList.append(8)
+linkedList.append(9)
+linkedList.append(10)
+linkedList.append(11)
+linkedList.append(12)
+linkedList.prepend(13)
+linkedList.prepend(14)
 
-// linkedList.printValues()
+linkedList.pop();
+linkedList.pop();
+linkedList.pop();
+linkedList.pop();
 
-// console.log(linkedList.at(4))
-
-// linkedList.pop();
-// linkedList.pop();
-// linkedList.pop();
-// linkedList.pop();
-linkedList.printValues();
-console.log(linkedList.find(1))
 console.log(linkedList.toString())
 
