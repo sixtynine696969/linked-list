@@ -140,6 +140,37 @@ class LinkedList {
         }
         return output;
     }
+
+    insertAt(value, index) {
+        let currentNode = this.root;
+        let counter = 0;
+        
+        while(currentNode instanceof Node) {
+            if (counter === +index - 1) {
+                let newNode = new Node(value, currentNode.nextNode);
+                currentNode.nextNode = newNode;
+                return;
+            }
+            counter++;
+            currentNode = currentNode.nextNode;
+        }
+    }
+
+    removeAt(index) {
+        let currentNode = this.root;
+        let counter = 0;
+        
+        while(currentNode instanceof Node) {
+            if (counter === +index - 1) {
+                let nodeToRemove = currentNode.nextNode;
+                currentNode.nextNode = currentNode.nextNode.nextNode;
+                nodeToRemove.nextNode = null;
+                return;
+            }
+            counter++;
+            currentNode = currentNode.nextNode;
+        }
+    }
 }
 
 let linkedList = new LinkedList()
@@ -163,6 +194,10 @@ linkedList.pop();
 linkedList.pop();
 linkedList.pop();
 linkedList.pop();
+
+linkedList.insertAt(999, 4)
+linkedList.removeAt(4);
+
 
 console.log(linkedList.toString())
 
