@@ -162,9 +162,9 @@ class LinkedList {
         
         while(currentNode instanceof Node) {
             if (counter === +index - 1) {
-                let nodeToRemove = currentNode.nextNode;
+                // let nodeToRemove = currentNode.nextNode;
                 currentNode.nextNode = currentNode.nextNode.nextNode;
-                nodeToRemove.nextNode = null;
+                // nodeToRemove.nextNode = null;
                 return;
             }
             counter++;
