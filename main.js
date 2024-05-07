@@ -147,8 +147,7 @@ class LinkedList {
         
         while(currentNode instanceof Node) {
             if (counter === +index - 1) {
-                let newNode = new Node(value, currentNode.nextNode);
-                currentNode.nextNode = newNode;
+                currentNode.nextNode = new Node(value, currentNode.nextNode);
                 return;
             }
             counter++;
@@ -157,6 +156,12 @@ class LinkedList {
     }
 
     removeAt(index) {
+        if (!this.root) return
+        if (index === 0) {
+            this.root = this.root.nextNode;
+            return;
+        }
+
         let currentNode = this.root;
         let counter = 0;
         
