@@ -160,7 +160,7 @@ class LinkedList {
         let currentNode = this.root;
         let counter = 0;
         
-        while(currentNode instanceof Node) {
+        while(currentNode instanceof Node && counter < index) {
             if (counter === +index - 1) {
                 // let nodeToRemove = currentNode.nextNode;
                 currentNode.nextNode = currentNode.nextNode.nextNode;
